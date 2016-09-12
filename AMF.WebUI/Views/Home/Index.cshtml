@@ -1,0 +1,14 @@
+﻿@model AMF.WebUI.Models.ProductsListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout.cshtml";
+}
+
+@foreach (var p in Model.Products)
+{
+    Html.RenderPartial("ProductSummary", p);
+}
+<div class="pager">
+    @Html.PageLinks(Model.pagingInfo, x => Url.Action("Index", new { page = x }))
+</div>
