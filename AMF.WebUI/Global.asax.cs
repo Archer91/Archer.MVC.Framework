@@ -20,8 +20,9 @@ namespace AMF.WebUI
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //注册MVC框架使用的NinjectControllerFactory
-            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+            //注册MVC框架使用的NinjectDependencyResolver
+            DependencyResolver.SetResolver(new NinjectDependencyResolver());
+
         }
     }
 }
